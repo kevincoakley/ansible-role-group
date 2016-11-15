@@ -1,2 +1,3 @@
 ---
-# defaults file for ansible-role-group
+group_state: present
+group_system: no

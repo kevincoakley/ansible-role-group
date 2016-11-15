@@ -1,2 +1,8 @@
 ---
-# tasks file for ansible-role-group
+- name: Create Groups
+  group:
+    gid: "{{ item.gid | default(omit) }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state | default(group_state) }}"
+    system: "{{ item.system | default(group_system) }}"
+  with_items: "{{ group_list }}"
