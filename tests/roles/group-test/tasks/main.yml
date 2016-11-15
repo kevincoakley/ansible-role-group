@@ -1,9 +1,17 @@
 ---
 # Test if the groups are present
 - shell: /usr/bin/getent group group01
+  register: group01_status
+  changed_when: "group01_status.rc != 0"
 - shell: /usr/bin/getent group group02
+  register: group02_status
+  changed_when: "group02_status.rc != 0"
 - shell: /usr/bin/getent group group03
+  register: group03_status
+  changed_when: "group03_status.rc != 0"
+
 # Test if the group is absent
 - shell: /usr/bin/getent group group04
   register: group04_status
   failed_when: group04_status.rc != 2
+  changed_when: "group04_status.rc != 2"
