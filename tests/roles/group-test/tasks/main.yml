@@ -1,0 +1,9 @@
+---
+# Test if the groups are present
+- shell: /usr/bin/getent group group01
+- shell: /usr/bin/getent group group02
+- shell: /usr/bin/getent group group03
+# Test if the group is absent
+- shell: /usr/bin/getent group group04
+  register: group04_status
+  failed_when: group04_status.rc != 2
