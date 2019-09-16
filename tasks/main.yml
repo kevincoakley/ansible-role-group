@@ -2,6 +2,7 @@
 - name: Create Groups
   group:
     gid: "{{ item.gid | default(omit) }}"
+    local: "{{ item.local | default(omit) }}"
     name: "{{ item.name }}"
     state: "{{ item.state | default(group_state) }}"
     system: "{{ item.system | default(group_system) }}"
